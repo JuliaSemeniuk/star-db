@@ -38,14 +38,14 @@ export default class SwapiService {
   }
 }
 
-const swapi = new SwapiService();
+export const swapi = new SwapiService();
 
-swapi.getAllPeople().then((people) => {
-  people.forEach((person) => {
-    console.log(person.name);
-  });
-});
+// swapi.getAllPeople().then((people) => {
+//   people.forEach((person) => {
+//     console.log(person.name);
+//   });
+// });
 
-swapi.getPerson(3).then((person) => {
-  console.log(`I am number 3 ${person.name}`);
-});
+// swapi.getPerson(3).then((person) => {
+//   console.log(`I am number 3 ${person.name}`);
+// });

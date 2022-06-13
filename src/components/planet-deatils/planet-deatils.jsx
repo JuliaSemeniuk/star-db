@@ -1,5 +1,5 @@
 import React from "react";
-import "./header.css";
+import "./planet-deatils.css";
 
 const PlanetDetails = () => {
   return <div></div>;

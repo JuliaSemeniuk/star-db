@@ -1,24 +1,43 @@
-import React from "react";
-import "./header.css";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { swapi } from "../../services/swapi-service";
+import "./random-planet.css";
 
 const RandomPlanet = () => {
+  const [name, setName] = useState(null);
+  const [population, setPopulation] = useState(null);
+  const [rotationPeriod, setRotationPeriod] = useState(null);
+  const [diameter, setDiameter] = useState(null);
+
+  useEffect(() => {
+    const getPlanet = async () => {
+      swapi.getPlanet(7).then((planet) => {
+        setName(planet.name);
+        setPopulation(planet.population);
+        setRotationPeriod(planet.rotation_period);
+        setDiameter(planet.diameter);
+      });
+    };
+    getPlanet();
+  }, []);
+
   return (
     <div>
-      <img src="" alt="" />
+      {/* <img src={image} alt="#" /> */}
       <div>
-        <h4>Planet name</h4>
+        <h4>{name}</h4>
         <ul>
           <li>
-            <span>Population</span>
-            <span>1</span>
+            <span>Population: </span>
+            <span>{population}</span>
           </li>
           <li>
-            <span>Rotation Period</span>
-            <span>21</span>
+            <span>Rotation Period: </span>
+            <span>{rotationPeriod}</span>
           </li>
           <li>
-            <span>Diametr</span>
-            <span>100</span>
+            <span>Diametr: </span>
+            <span>{diameter}</span>
           </li>
         </ul>
       </div>

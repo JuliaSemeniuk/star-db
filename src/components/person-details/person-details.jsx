@@ -1,5 +1,5 @@
 import React from "react";
-import "./header.css";
+import "./person-details.css";
 export default class PersonalDetails extends React.Component {
   render() {
     return (
